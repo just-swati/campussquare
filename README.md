@@ -1,6 +1,8 @@
 # CampusSquare — website
 
-Static site (HTML + CSS + vanilla JS, no build step). Open `index.html` in a browser, or upload the folder to any static host (Netlify, Vercel, GitHub Pages, cPanel).
+**Live at https://campussquare.in** — hosted on GitHub Pages from the `main` branch of [`just-swati/campussquare`](https://github.com/just-swati/campussquare). `www.campussquare.in` and `just-swati.github.io/campussquare` redirect there.
+
+Static site (HTML + CSS + vanilla JS, no build step). Open `index.html` in a browser to preview locally.
 
 | Page | Purpose |
 |---|---|
@@ -41,3 +43,26 @@ All forms (pop-up, contact page, landing page) are handled in `assets/js/main.js
 - Set `formEndpoint` to a URL that accepts POSTed form fields (e.g. Formspree, a Google Apps Script web app, or your own backend) to receive leads directly. Fields sent: `name, phone, email, course, message, source, page, submittedAt`.
 
 Course lists for the dropdowns live in `COURSES` in the same file.
+
+## Publishing updates
+
+Edit the files, then in this folder run:
+
+```sh
+git add -A
+git commit -m "Describe the change"
+git push
+```
+
+GitHub Pages rebuilds the site in about a minute. This folder is configured to push as the `just-swati` GitHub account (its token is read from the `gh` keyring at push time), whichever `gh` account is active.
+
+## Domain (GoDaddy)
+
+The `CNAME` file tells GitHub Pages to serve the site at `campussquare.in`. DNS records at GoDaddy:
+
+| Type | Name | Value |
+|---|---|---|
+| A | @ | 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 (four records) |
+| CNAME | www | just-swati.github.io |
+
+HTTPS certificates are issued and renewed automatically by GitHub Pages.
