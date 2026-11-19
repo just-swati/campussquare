@@ -277,7 +277,6 @@ img { display: block; max-width: 100%; height: auto; }
   .topbar__note { display: none; }
   .topbar__inner { justify-content: center; }
 }
-@media (max-width: 420px) { .topbar__links a.topbar__email { display: none; } }
 
 .site-header {
   position: sticky;
@@ -839,6 +838,7 @@ textarea.input { min-height: 120px; resize: vertical; }
 .field__error { color: var(--danger); font-size: 0.82rem; font-weight: 600; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
 @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+.hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; } /* spam trap, hidden from people */
 .form-note {
   display: flex;
   align-items: flex-start;
@@ -1133,7 +1133,7 @@ body.modal-open { overflow: hidden; }
   left: 0; right: 0; bottom: 0;
   z-index: 45;
   display: none;
-  grid-template-columns: 1fr 1fr 1.3fr;
+  grid-template-columns: 1fr 1.3fr;
   gap: 8px;
   padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
   border-top: 1px solid var(--line);

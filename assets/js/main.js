@@ -285,6 +285,12 @@
       submittedAt: new Date().toISOString(),
     };
 
+    // Spam trap: bots fill the hidden "website" field; people never see it.
+    if (String(fd.get('website') || '').trim()) {
+      showSuccess(form, CONFIG.formEndpoint ? 'callback' : 'whatsapp', data);
+      return;
+    }
+
     if (!CONFIG.formEndpoint) {
       window.open(waLink(leadMessage(data)), '_blank', 'noopener');
       showSuccess(form, 'whatsapp', data);
@@ -301,7 +307,9 @@
         headers: { Accept: 'application/json' },
         body: new URLSearchParams(data),
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      // Google Apps Script always answers HTTP 200, so also check the JSON body.
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok || body.ok === false) throw new Error(body.error || `HTTP ${res.status}`);
       showSuccess(form, 'callback', data);
     } catch (err) {
       console.error('Enquiry could not be sent:', err);
@@ -348,6 +356,7 @@
               <input class="input" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="14" placeholder="10-digit mobile number"></span></label>
             <label class="field"><span class="field__label">Program of interest</span>
               <select class="input" name="course" data-course-select></select></label>
+            <label class="hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Book free counselling ${icon('arrow')}</button>
             <p class="form-note">${icon('lock')}<span>By submitting, you agree to be contacted by call, SMS or WhatsApp. No spam, ever.</span></p>
           </form>
