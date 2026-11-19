@@ -14,7 +14,7 @@
     // Optional: a URL that accepts POSTed form fields (Formspree, Google Apps
     // Script web app, your own backend...). When empty, enquiries open in
     // WhatsApp with the visitor's details prefilled instead.
-    formEndpoint: '',
+    formEndpoint: 'https://script.google.com/macros/s/AKfycbz5rFZZwitLaNDnPA2_2ZXhyqdcevmRyGGeEvxE-I1lZuYT-Kg1qL8-dlc-mehIAV9PHg/exec',
   };
 
   const COURSES = {
