@@ -9,15 +9,16 @@ Static site (HTML + CSS + vanilla JS, no build step). Open `index.html` in a bro
 | `index.html` | Home — programs, verification checklist, steps, 10th/12th, career support, FAQ |
 | `about.html` | Story, mission/vision, values, approach, who we help |
 | `courses.html` | All 15 programs with filters and search (`courses.html?level=pg\|ug\|cert\|school`) |
-| `contact.html` | WhatsApp, office address + enquiry form |
+| `contact.html` | Phone, WhatsApp, email, office address + enquiry form |
 | `landing.html` | Standalone ad-campaign landing page (lead form above the fold, mobile sticky bar) |
 
 Shared files: `assets/css/styles.css`, `assets/js/main.js`, `assets/img/`.
 
 ## Business details in use
 
-- **WhatsApp:** `919540542226` — used by every "Chat on WhatsApp" button and `CONFIG.whatsappNumber` in `assets/js/main.js`. The number is not displayed on the site and there are no Call buttons.
-- **Email:** none shown on the site.
+- **Phone (calls):** main **+91 77018 22935**, second +91 95405 42226 — top bar (main), contact page and footers (both); the landing page's header and bottom-bar Call buttons use the main number.
+- **WhatsApp:** `919540542226` — every "Chat on WhatsApp" button and `CONFIG.whatsappNumber` in `assets/js/main.js`.
+- **Email:** info@campussquare.in — top bar, contact page, footers, landing page footer.
 - **Address:** B-07, 247/4A, Procapitus Business Park, Sector 63, Noida, Uttar Pradesh (contact page + every footer, with a Google Maps link)
 - **Logo:** generated from the original `logo.jpg` (white background made transparent):
   - `assets/img/logo-horizontal.png` — icon + wordmark, used in the header and (on a white pill) on the landing page
